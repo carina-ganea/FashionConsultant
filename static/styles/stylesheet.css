@@ -1,0 +1,65 @@
+    .container {
+      position: relative;
+      text-align: center;
+      color: white;
+      padding: 0px;
+    }
+    .content {
+        background-color: #F6EAE7;
+        min-height: 100vh;
+    }
+    .header {
+      color: black;
+    }
+
+    p {
+    color: #111;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 1.25em;
+    line-height: 24px;
+    text-justify: inter-word;
+    margin: 2em 0;
+    }
+
+    h1 {
+    color: #111;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 36px;
+    font-weight: bold;
+    letter-spacing: -1px;
+    line-height: 1;
+    text-align: center;
+    background-color: #f06237;
+    margin-top: 0px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 100%;
+    }
+
+    h2 {
+    color: #111;
+    font-family: 'Monotype Corsiva','Apple Chancery','ITC Zapf Chancery','URW Chancery L',cursive;
+    font-size: 3em;
+    font-weight: bold;
+    letter-spacing: -1px;
+    line-height: 1;
+    text-align: center;
+    margin-top: 0px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 100%;
+    }
+
+    input[type=submit] {
+      background-color: #f06237;
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 1em;
+    }
+    input[type=submit]:hover {
+      background-color: #b0540e;
+    }

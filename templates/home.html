@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html>
+    <script>
+    var loadFile = function(event) {
+	    var image = document.getElementById('output');
+
+
+	    image.src = URL.createObjectURL(event.target.files[0]);
+
+        image.style.height = "500px";
+	    image.style.width = "auto";
+	    image.style.border = "1px solid grey";
+    };
+
+    var loadImage = function() {
+        {%if show%}
+        var image = document.getElementById('output');
+
+        image.src = "{{url_for('static',filename="uploads/"+showImage)}}";
+        console.log("{{url_for('static',filename="uploads/"+showImage)}}");
+        image.style.height = "500px";
+	    image.style.width = "auto";
+	    image.style.border = "1px solid grey";
+	    {%endif%}
+    };
+    </script>
+	<head>
+        <link rel="shortcut icon" href="static/favicon.ico" />
+    	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{{ url_for('static',filename='styles/stylesheet.css') }}" />
+<!--    	<link rel='stylesheet' href='font-awesome.min.css'></style>-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <title> Fashionizer - Your fashion assistant </title>
+    </head>
+    <body onload="loadImage(); window.scroll(0, 840)">
+
+    <div class="container content">
+        <header class="text-center text-white"><h1 class = 'header'>Fashionizer - Your fashion assistant</h1></header>
+        <p>Select a picture of an article of clothing and press submit for predictions.</p>
+
+        <form action = "http://127.0.0.1:5000/" method="POST" enctype="multipart/form-data" class='form'>
+
+            <label for="file" class="btn btn-default" style="cursor: pointer;">Choose image</label>
+            <br />
+            <br />
+            <input type="file"  accept="image/*" name="image" id="file" onchange="loadFile(event)" style="display: none;">
+            <img id="output" src="{{url_for('static',filename='images/placeholder-image.png')}}" height="200" width="250"
+                 style="margin-bottom:8px; background-color: lightgrey; border: 3px dashed grey;" />
+            <br />
+            <br />
+            <input type="submit" value=Submit>
+        </form>
+
+        {%if show%}
+        <br />
+        <br />
+        <br />
+        <h2>Some outfits that might include this:</h2>
+        <hr>
+        {%endif%}
+
+        {%for image in images%}
+        <img src="{{url_for('static',filename=image)}}" height="500" align="middle"
+             style="margin-bottom:5px; border: 1px solid grey;"/>
+        {%endfor%}
+    </div>
+
+    </body>
+
+</html>
